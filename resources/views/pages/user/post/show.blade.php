@@ -76,7 +76,7 @@
                                 <button type="submit" class="btn btn-primary">Добавить</button>
                             </div>
                         </form>
-                    @else
+                    @elseif(auth()->check() && auth()->user()->isBanned())
                         <div class="alert alert-danger" role="alert">
                             Вас забанил админ. <br>Причина: {{ auth()->user()->isBannedReason() }}
                         </div>

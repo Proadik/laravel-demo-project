@@ -32,7 +32,6 @@ class AuthServiceProvider extends ServiceProvider
             return $user->type == 'user';
         });
 
-
         Gate::define('userIsNotBanned', function($user) {
             return $user->isBanned() ? Response::deny('Вы были забанены на сайте. Причина: '. $user->isBannedReason(), 403) : Response::allow();
         });
