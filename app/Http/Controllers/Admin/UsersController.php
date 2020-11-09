@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\BlackList;
 use App\Http\Controllers\Controller;
+use App\Models\BlackList;
 use App\User;
 use Illuminate\Http\Request;
 

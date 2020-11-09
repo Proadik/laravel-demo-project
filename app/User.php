@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\BlackList;
 use App\Models\Post;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
