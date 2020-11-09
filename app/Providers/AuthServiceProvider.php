@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Post;
 use App\Policies\PostPolicy;
+use Illuminate\Auth\Access\Response;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Passport\Passport;
@@ -32,11 +33,7 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Gate::define('userIsNotBanned', function($user) {
-            if($user->isBanned()) {
-                return false;
-            }
-
-            return true;
+            return $user->isBanned() ? Response::deny('Вы были забанены на сайте. Причина: '. $user->isBannedReason()) : Response::allow();
         });
     }
 
