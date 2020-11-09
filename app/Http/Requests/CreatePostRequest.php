@@ -22,7 +22,7 @@ class CreatePostRequest extends FormRequest
             'content' => 'required|string|min:10',
             'image' => [
                 Rule::requiredIf(function(){
-                    return $this->has('image');
+                    return $this->input('type') == 'create';
                 }), 'image'
             ]
         ];
